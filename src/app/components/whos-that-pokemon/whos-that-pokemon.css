@@ -60,6 +60,7 @@
 }
 
 .play-button {
+  text-decoration: none;
   position: relative;
   z-index: 1;
   overflow: hidden;  
