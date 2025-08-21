@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-red: #EE1515;
+  --primary-blue: #00AAFF;
+  --primary-yellow: #FFCB05;
+
+  --dark-background: #0D1117;
+  --light-text: #F0F6FC;
+  --subtle-glow-red: rgba(238, 21, 21, 0.15);
+  --subtle-glow-blue: rgba(0, 170, 255, 0.15);
+}
+
+
+body {
+  background-color: var(--dark-background);
+  
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+
+    radial-gradient(circle at 90% 90%, var(--subtle-glow-blue) 0%, transparent 30%),
+
+    radial-gradient(circle at 10% 10%, var(--subtle-glow-red) 0%, transparent 30%);
+  
+  background-attachment: fixed;
+  background-size: 20px 20px, 20px 20px, cover, cover;
+  
+  color: var(--light-text);
+}
