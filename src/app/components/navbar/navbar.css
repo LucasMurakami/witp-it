@@ -11,6 +11,7 @@
   left: 0;
   width: 100%;
   height: var(--navbar-height);
+  min-width: 225px;
   z-index: 1000;
   
   background: var(--navbar-background);
@@ -24,7 +25,6 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
