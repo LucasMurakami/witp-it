@@ -1,0 +1,40 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-logo">
+      <img src="/res/pokeball.svg" alt="Pokeball Logo" class="pokeball-logo">
+      <span class="logo-text">WITP-IT</span>
+    </a>
+
+    <!-- Desktop Navigation (Hidden on Mobile) -->
+    <ul class="desktop-nav">
+      <li><a routerLink="/pokedex" routerLinkActive="active" class="nav-link">Pokédex</a></li>
+      <li><a routerLink="/witp-game" routerLinkActive="active" class="nav-link">Play</a></li>
+    </ul>
+
+    <!-- Hamburger Menu (Mobile Only) -->
+    <button 
+      class="hamburger-menu" 
+      (click)="toggleMobileMenu()" 
+      [class.is-active]="isMobileMenuOpen"
+      aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div 
+  class="mobile-nav-overlay" 
+  [class.is-active]="isMobileMenuOpen" 
+  (click)="toggleMobileMenu()">
+</div>
+
+<div class="mobile-nav" [class.is-active]="isMobileMenuOpen">
+  <ul class="mobile-nav-links">
+    <li><a routerLink="/pokedex" routerLinkActive="active" class="mobile-nav-link">Pokédex</a></li>
+    <li><a routerLink="/witp-game" routerLinkActive="active" class="mobile-nav-link">Play</a></li>
+  </ul>
+</div>

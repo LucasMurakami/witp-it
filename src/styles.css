@@ -8,6 +8,8 @@
   --light-text: #F0F6FC;
   --subtle-glow-red: rgba(238, 21, 21, 0.15);
   --subtle-glow-blue: rgba(0, 170, 255, 0.15);
+
+  --navbar-height: 4rem;
 }
 
 
@@ -26,4 +28,6 @@ body {
   background-size: 20px 20px, 20px 20px, cover, cover;
   
   color: var(--light-text);
+
+  padding-top: var(--navbar-height);
 }
