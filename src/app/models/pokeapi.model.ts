@@ -8,3 +8,8 @@ export interface WhosThatPokemonCardInformation {
         }
     };
 }
+
+export interface jsonPokemon {
+    id: number;
+    name: string;
+}
