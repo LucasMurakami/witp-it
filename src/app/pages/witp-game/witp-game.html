@@ -1,3 +1,11 @@
+
+<div class="score-counter">
+  <div class="score-label">Score</div>
+  <div class="score-value">{{score}}</div>
+  <div class="score-round">Round <span>{{round}}</span>/<span>{{maxRounds}}</span></div>
+</div>
+
+
 <app-whos-that-pokemon>
     <div middle-content>
         <div class="container-middle-content">  
@@ -7,14 +15,20 @@
                 <div class="pokemon-card-image-mask" [style.mask-image]="'url(' + pokemon.sprites.other['official-artwork'].front_default + ')'"></div>
             </ng-container>
         </div>
-
     </div>    
-    <div bottom-content class="container-bottom-content">
-        <ng-container *ngIf="!isLoading && pokemon">
-            <button class="pokemon-alternative-button">{{ pokemonRandomList[0].name }}</button>
-            <button class="pokemon-alternative-button">{{ pokemonRandomList[1].name }}</button>
-            <button class="pokemon-alternative-button">{{ pokemonRandomList[2].name }}</button>
-            <button class="pokemon-alternative-button">{{ pokemonRandomList[3].name }}</button>
+    <div bottom-content class="container-bottom-content" *ngIf="!isLoading && pokemon">
+        <ng-container *ngFor="let poke of pokemonRandomList">
+            <button
+                (click)="handleAnswer(poke.name)"
+                [disabled]="selectedAnswer"
+                class="pokemon-alternative-button"
+                
+                [ngClass]="getButtonClass(poke.name)"
+                
+                aria-label="Answer {{poke.name}}"
+            >
+                {{poke.name | uppercase}}
+            </button>
         </ng-container>
     </div>
 </app-whos-that-pokemon>
