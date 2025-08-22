@@ -52,7 +52,7 @@ export class WitpGame implements OnInit {
       this.selectedAnswer = selected;
       this.isCorrect = selected.toLowerCase() === this.pokemon?.name.toLowerCase();
       if (this.isCorrect) this.score++;
-        setTimeout(() => this.nextRound(), 1200);
+        setTimeout(() => this.nextRound(), 3500);
     }
   }
 
@@ -87,6 +87,14 @@ export class WitpGame implements OnInit {
     }
 
     return '';
+  }
+
+  revealPokemon(): string {
+    if(!this.selectedAnswer) {
+      return '';
+    }
+
+    return "reveal";
   }
 
   restartGame(): void {

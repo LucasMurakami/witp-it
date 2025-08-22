@@ -18,7 +18,11 @@
             <div *ngIf="isLoading" class="pokeball-spinner"></div>
             <ng-container *ngIf="!isLoading && pokemon">
                 <img [src]="pokemon.sprites.other['official-artwork'].front_default" class="pokemon-card-image">
-                <div class="pokemon-card-image-mask" [style.mask-image]="'url(' + pokemon.sprites.other['official-artwork'].front_default + ')'"></div>
+                <div 
+                    class="pokemon-card-image-mask"
+                    [style.mask-image]="'url(' + pokemon.sprites.other['official-artwork'].front_default + ')'"
+                    [ngClass]="revealPokemon()"
+                ></div>
             </ng-container>
         </div>
     </div>    

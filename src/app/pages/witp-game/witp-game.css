@@ -11,18 +11,17 @@
     position: relative;
 }
 
-.container-bottom-content {
-    gap: .5rem;
-    width: 100%;
-    margin-bottom: 2.5rem;
+.container-bottom-content {  
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
+    gap: .5rem;
+    width: 100%;
+    margin-bottom: 2.5rem;
 }
 
 .pokemon-card-image-mask {
-    z-index: 20;
     width: calc(80%);
 
     aspect-ratio: 1/1;
@@ -33,7 +32,14 @@
     
     mask-size: contain;
     mask-repeat: no-repeat;
-    mask-position: center;
+    mask-position: center;    
+    transition: background-color 1.5s ease-in-out;
+
+    z-index: 20;
+}
+
+.pokemon-card-image-mask.reveal {
+  background-color: transparent;
 }
 
 .pokemon-alternative-button {
@@ -155,8 +161,8 @@
 }
 
 .pokeball-spinner {
-  width: 26rem;
-  height: 26rem;
+  width: 24rem;
+  height: 24rem;
   margin: 2rem auto;
   background: url('/res/pokeball.svg') no-repeat center center;
   background-size: contain;
