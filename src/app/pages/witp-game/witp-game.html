@@ -1,8 +1,13 @@
 <app-whos-that-pokemon>
     <div middle-content>
-        <div class="container-middle-content">            
-            <img src="359.png" class="pokemon-card-image">
-            <div class="pokemon-card-image-mask" style="mask-image: url('/359.png')"></div>
+        <div class="container-middle-content">  
+            <div *ngIf="isLoading" class="loading">
+                Loading Pokémon...
+            </div>
+            <ng-container *ngIf="!isLoading && pokemon">
+                <img [src]="pokemon.sprites.other['official-artwork'].front_default" class="pokemon-card-image">
+                <div class="pokemon-card-image-mask" [style.mask-image]="'url(' + pokemon.sprites.other['official-artwork'].front_default + ')'"></div>
+            </ng-container>
         </div>
 
     </div>    
