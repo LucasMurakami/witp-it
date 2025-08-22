@@ -1,9 +1,7 @@
 <app-whos-that-pokemon>
     <div middle-content>
         <div class="container-middle-content">  
-            <div *ngIf="isLoading" class="loading">
-                Loading Pokémon...
-            </div>
+            <div *ngIf="isLoading" class="pokeball-spinner"></div>
             <ng-container *ngIf="!isLoading && pokemon">
                 <img [src]="pokemon.sprites.other['official-artwork'].front_default" class="pokemon-card-image">
                 <div class="pokemon-card-image-mask" [style.mask-image]="'url(' + pokemon.sprites.other['official-artwork'].front_default + ')'"></div>
@@ -12,11 +10,11 @@
 
     </div>    
     <div bottom-content class="container-bottom-content">
-
-        <button class="pokemon-alternative-button">Absol</button>
-        <button class="pokemon-alternative-button">Blastoise</button>
-        <button class="pokemon-alternative-button">Cacturne</button>
-        <button class="pokemon-alternative-button">Drawitokafodsafsi</button>
-
+        <ng-container *ngIf="!isLoading && pokemon">
+            <button class="pokemon-alternative-button">{{ pokemonRandomList[0].name }}</button>
+            <button class="pokemon-alternative-button">{{ pokemonRandomList[1].name }}</button>
+            <button class="pokemon-alternative-button">{{ pokemonRandomList[2].name }}</button>
+            <button class="pokemon-alternative-button">{{ pokemonRandomList[3].name }}</button>
+        </ng-container>
     </div>
 </app-whos-that-pokemon>

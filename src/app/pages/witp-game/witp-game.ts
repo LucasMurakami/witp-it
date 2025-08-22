@@ -20,7 +20,7 @@ export class WitpGame implements OnInit {
   ngOnInit(): void {
       this.pokeApi.getRandomNames(4).subscribe(randomNames => {
       this.pokemonRandomList = randomNames;
-      this.loadPokemonData(this.pokemonRandomList[0].name);
+      this.loadPokemonData(this.pokemonRandomList[Math.floor(Math.random() * 4)].name);
     });
   }
 
