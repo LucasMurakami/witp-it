@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WhosThatPokemon } from "../components/whos-that-pokemon/whos-that-pokemon";
+import { WhosThatPokemon } from "../../components/whos-that-pokemon/whos-that-pokemon";
 
 @Component({
   selector: 'app-witp-game',
