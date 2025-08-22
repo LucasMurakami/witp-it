@@ -1,12 +1,17 @@
 <div class="card-container">
   <div class="card-glow"></div>
   <div class="card-content">
-    <h2 class="title">Who's that Pokémon?</h2>
+    <!-- Top Content -->
+    <img class ="who-pokemon" src="res/whosthatpokemon.svg"/>
 
-    <a class="play-button" routerLink="/witp-game">
-        <span class="button-text">Play Now</span>
-    </a>
+    <!-- Middle Content -->
+    <ng-content select="[middle-content]"></ng-content>
 
-    <img class="pokemon-logo" src="res/international-pokemon-logo.svg" alt="Pokémon Logo">
+    <!-- Bottom Content -->
+    <!-- Pokemon Logo as Default -->
+    <ng-content select="[bottom-content]">
+      <img class="pokemon-logo" src="res/international-pokemon-logo.svg" alt="Pokémon Logo">
+    </ng-content>
+    
   </div>
 </div>

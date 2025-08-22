@@ -1,0 +1,40 @@
+
+<div class="score-counter">
+  <div class="score-label">Score</div>
+  <div class="score-value">{{score}}</div>
+  <div class="score-round">Round <span>{{round}}</span>/<span>{{maxRounds}}</span></div>
+</div>
+
+<app-endgame-modal 
+    *ngIf="showEndgameModal" 
+    [score]="score"
+    [maxRounds]="maxRounds"
+    (restartGame)="restartGame()">
+</app-endgame-modal>
+
+<app-whos-that-pokemon>
+    <div middle-content>
+        <div class="container-middle-content">  
+            <div *ngIf="isLoading" class="pokeball-spinner"></div>
+            <ng-container *ngIf="!isLoading && pokemon">
+                <img [src]="pokemon.sprites.other['official-artwork'].front_default" class="pokemon-card-image">
+                <div class="pokemon-card-image-mask" [style.mask-image]="'url(' + pokemon.sprites.other['official-artwork'].front_default + ')'"></div>
+            </ng-container>
+        </div>
+    </div>    
+    <div bottom-content class="container-bottom-content" *ngIf="!isLoading && pokemon">
+        <ng-container *ngFor="let poke of pokemonRandomList">
+            <button
+                (click)="handleAnswer(poke.name)"
+                [disabled]="selectedAnswer"
+                class="pokemon-alternative-button"
+                
+                [ngClass]="getButtonClass(poke.name)"
+                
+                aria-label="Answer {{poke.name}}"
+            >
+                {{poke.name | uppercase}}
+            </button>
+        </ng-container>
+    </div>
+</app-whos-that-pokemon>

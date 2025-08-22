@@ -30,6 +30,13 @@ body {
   background-size: 20px 20px, 20px 20px, cover, cover;
   
   color: var(--light-text);
-
+  overflow: hidden;
   padding-top: var(--navbar-height);
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
