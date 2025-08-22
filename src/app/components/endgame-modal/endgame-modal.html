@@ -1,0 +1,8 @@
+<div class="endgame-modal">
+  <div class="endgame-modal-content">
+    <h2>Game Over!</h2>
+    <p>Your score: <strong>{{score}}</strong> / {{maxRounds}}</p>    
+    <p>{{ resultMessage() }}</p>
+    <button (click)="onRestartGame()" class="restart-button">Restart</button>
+  </div>
+</div>

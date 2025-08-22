@@ -1,0 +1,123 @@
+.endgame-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  animation: modal-fade-in 0.3s ease-out;
+}
+
+.endgame-modal-content {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  
+  width: 90%;
+  max-width: 400px;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  
+  background: var(--dark-background);
+  border-radius: 24px;
+  border: none;
+}
+
+.endgame-modal-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  
+  background: conic-gradient(
+    var(--primary-red),
+    var(--primary-blue),
+    var(--primary-yellow),
+    var(--primary-red)
+  );
+  
+  animation: spin-border 4s linear infinite;
+  
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+.endgame-modal-content h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 4vw, 1.25rem);
+  font-weight: 900;
+  color: var(--primary-yellow);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.endgame-modal-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.1rem, 4vw, 1.25rem);
+  color: var(--light-text);
+  opacity: 0.9;
+  margin: 0;
+}
+
+.endgame-modal-content p strong {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 4vw, 1.25rem);
+  color: #fff;
+  font-weight: 700;
+}
+
+.restart-button {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    overflow: hidden;  
+    padding: 1rem 2.5rem; 
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    font-weight: 700;
+    color: var(--light-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;  
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;  
+    -webkit-backdrop-filter: blur(10px); 
+}
+
+.restart-button:hover {
+    transform: translateY(-3px);
+    color: var(--light-text);
+    box-shadow: none;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

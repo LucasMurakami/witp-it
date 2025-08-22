@@ -5,6 +5,12 @@
   <div class="score-round">Round <span>{{round}}</span>/<span>{{maxRounds}}</span></div>
 </div>
 
+<app-endgame-modal 
+    *ngIf="showEndgameModal" 
+    [score]="score"
+    [maxRounds]="maxRounds"
+    (restartGame)="restartGame()">
+</app-endgame-modal>
 
 <app-whos-that-pokemon>
     <div middle-content>

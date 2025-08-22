@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { WhosThatPokemon } from "../../components/whos-that-pokemon/whos-that-pokemon";
 import { Pokeapi } from '../../services/pokeapi.service';
 import { jsonPokemon, WhosThatPokemonCardInformation } from '../../models/pokeapi.model';
+import { EndgameModal } from "../../components/endgame-modal/endgame-modal";
 
 @Component({
   selector: 'app-witp-game',
-  imports: [WhosThatPokemon, CommonModule],
+  imports: [WhosThatPokemon, CommonModule, EndgameModal],
   templateUrl: './witp-game.html',
   styleUrl: './witp-game.css'
 })
@@ -14,7 +15,10 @@ export class WitpGame implements OnInit {
   // Render Pokemon Cards
   pokemonRandomList: jsonPokemon[] = [];
   pokemon: WhosThatPokemonCardInformation | null = null;
+
+  // Render Other components
   isLoading = true;
+  showEndgameModal = false;
 
   // Game Logic
   score = 0;
@@ -62,7 +66,8 @@ export class WitpGame implements OnInit {
         this.loadPokemonData(this.pokemonRandomList[Math.floor(Math.random() * 4)].name);
       });
     } else {
-      // TBA end game
+      console.log('Game Over! Final Score:', this.score);
+      this.showEndgameModal = true;
     }
   }
 
@@ -82,5 +87,14 @@ export class WitpGame implements OnInit {
     }
 
     return '';
+  }
+
+  restartGame(): void {
+    this.score = 0;
+    this.round = 1;
+    this.showEndgameModal = false;
+    this.selectedAnswer = null;
+    this.isCorrect = null;
+    this.loadPokemonData(this.pokemonRandomList[Math.floor(Math.random() * 4)].name);
   }
 }
